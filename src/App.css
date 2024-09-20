@@ -1,0 +1,20 @@
+.name-reveal-left {
+    position: relative;
+    animation: slideIn 2.5s forwards;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.name-reveal-right {
+    position: relative;
+    animation: slideIn 2.5s forwards;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
