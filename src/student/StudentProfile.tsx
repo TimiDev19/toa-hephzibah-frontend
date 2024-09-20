@@ -19,6 +19,7 @@ interface Assignment {
     _id: string;
     subject: string;
     question: string;
+    updatedAt: string;
 }
 
 const StudentProfile: React.FC = () => {

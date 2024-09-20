@@ -51,7 +51,7 @@ const EditStudent = () => {
             .catch(error => console.error('Error fetching data:', error));
     }, [id]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         if (formData) {
             setFormData({
                 ...formData,
