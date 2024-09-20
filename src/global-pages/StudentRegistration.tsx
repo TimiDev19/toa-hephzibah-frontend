@@ -1,9 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.webp'
 import { useState } from 'react'
 
 const StudentRegistration = () => {
     const navigate = useNavigate()
+
     const [formData, setFormData] = useState({
         firstName: " ",
 
@@ -22,12 +23,14 @@ const StudentRegistration = () => {
         stateOfOrign: " ",
 
     })
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -53,6 +56,7 @@ const StudentRegistration = () => {
             console.error('Error submitting form:', error);
         }
     };
+
     return (
         <div className=' h-[100vh] w-[100vw] flex items-center justify-center home-bg'>
 
@@ -91,7 +95,6 @@ const StudentRegistration = () => {
                     </div>
                 </div>
 
-
                 <div className=' flex flex-col sm:flex-row items-center justify-between'>
                     <div className=' sm:w-[45%]'>
                         <label htmlFor="name" className=" block">Phone Number:</label>
@@ -119,7 +122,6 @@ const StudentRegistration = () => {
                         />
                     </div>
                 </div>
-
 
                 <div className=' flex flex-col sm:flex-row items-center justify-between'>
                     <div className=' sm:w-[45%]'>
@@ -161,7 +163,6 @@ const StudentRegistration = () => {
                 <button type="submit" className=" block m-auto w-full text-center bg-purple-700 py-1 text-white mb-4">Submit</button>
 
             </form>
-
         </div>
     )
 }

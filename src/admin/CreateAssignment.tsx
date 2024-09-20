@@ -10,12 +10,14 @@ const CreateAssignment = () => {
         question: "",
 
     })
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -41,6 +43,7 @@ const CreateAssignment = () => {
             console.error('Error submitting form:', error);
         }
     };
+
     return (
         <div className=" h-[100vh] w-[100vw] home-bg flex items-center justify-center">
             <form onSubmit={handleSubmit} action="" className=' w-[90%] bg-white px-4 py-6 sm:w-[50%] md:w-[40%] rounded-lg'>

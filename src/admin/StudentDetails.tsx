@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import logo from '../assets/logo.webp'
-import { format } from 'date-fns';
 
 interface Item {
     _id: string;
@@ -18,7 +17,6 @@ interface Item {
 const StudentDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [item, setItem] = useState<Item | null>(null);
-
     const [date, setDate] = useState('');
 
     useEffect(() => {
@@ -26,14 +24,11 @@ const StudentDetails: React.FC = () => {
             try {
                 const response = await fetch(`https://toa-hephzibah-backend.onrender.com/api/product/${id}`);
                 const data = await response.json();
-
-                // Assuming your date is in data.updatedAt
                 const dateString = new Date(data.updatedAt).toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric'
                 });
-
                 setDate(dateString);
             } catch (error) {
                 console.error('Error fetching item:', error);
@@ -50,6 +45,7 @@ const StudentDetails: React.FC = () => {
             .then(data => setItem(data))
             .catch(error => console.error('Error fetching item:', error));
     }, [id]);
+
     if (!item) return (
         <div className=" h-[100vh] w-[100vw] flex items-center justify-center home-bg">
             <div className="flex flex-col items-center text-center rounded-md justify-center h-[300px] w-[300px] bg-gray-100">
@@ -58,6 +54,7 @@ const StudentDetails: React.FC = () => {
             </div>
         </div>
     )
+    
     return (
         <div className=" h-[100vh] w-[100vw] flex items-center justify-center home-bg">
             <div className=" bg-white px-4 py-4 w-[85%] md:w-[40%]">

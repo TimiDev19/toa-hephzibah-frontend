@@ -9,7 +9,6 @@ interface Assignment {
     coachingType: string;
 }
 
-
 const EditAssignment = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -21,8 +20,8 @@ const EditAssignment = () => {
         fetch(`https://toa-hephzibah-backend.onrender.com/api/assignment/${id}`)
             .then(response => response.json())
             .then(data => {
-                setItem(data); // Store fetched data in state
-                setFormData(data); // Set form data to pre-fill the form
+                setItem(data);
+                setFormData(data);
             })
             .catch(error => console.error('Error fetching data:', error));
     }, [id]);
@@ -35,8 +34,6 @@ const EditAssignment = () => {
             });
         }
     };
-
-
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -52,11 +49,12 @@ const EditAssignment = () => {
                 .then(response => response.json())
                 .then(updatedData => {
                     console.log('Data updated:', updatedData);
-                    navigate(`/assignments`); // Redirect or show a success message
+                    navigate(`/assignments`);
                 })
                 .catch(error => console.error('Error updating data:', error));
         }
     };
+
     if (!formData) return (
         <div className=" h-[100vh] w-[100vw] flex items-center justify-center home-bg">
             <div className="flex flex-col items-center text-center rounded-md justify-center h-[300px] w-[300px] bg-gray-100">
@@ -65,6 +63,7 @@ const EditAssignment = () => {
             </div>
         </div>
     )
+
     if (!item) return (
         <div className=" h-[100vh] w-[100vw] flex items-center justify-center home-bg">
             <div className="flex flex-col items-center text-center rounded-md justify-center h-[300px] w-[300px] bg-gray-100">
@@ -81,7 +80,6 @@ const EditAssignment = () => {
                     <h1 className=" text-2xl font-semibold">Edit Student Details</h1>
                     <div className=" h-[3px] w-[33%] bg-green-700"></div>
                 </div>
-
 
                 <div className=" w-full flex flex-col items-center justify-between">
                     <div className=" w-full">

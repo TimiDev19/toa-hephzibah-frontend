@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import logo from '../assets/logo.webp'
 import { format } from 'date-fns';
-// import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-// import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-// import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 interface Item {
     _id: string;
@@ -74,7 +71,7 @@ const StudentProfile: React.FC = () => {
             data => {
                 const formattedData = data.map((assignment: any) => ({
                     ...assignment,
-                    updatedAt: format(assignment.updatedAt, 'dd-MM-yyyy') // Format the updatedAt field
+                    updatedAt: format(assignment.updatedAt, 'dd-MM-yyyy')
                 }));
 
                 setAssignment(formattedData);

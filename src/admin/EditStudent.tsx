@@ -13,7 +13,6 @@ interface Item {
     stateOfOrign: string;
 }
 
-
 const EditStudent = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -26,8 +25,6 @@ const EditStudent = () => {
             try {
                 const response = await fetch(`https://toa-hephzibah-backend.onrender.com/api/product/${id}`);
                 const data = await response.json();
-
-                // Assuming your date is in data.updatedAt
                 const dateString = new Date(data.updatedAt).toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'long',
@@ -48,8 +45,8 @@ const EditStudent = () => {
         fetch(`https://toa-hephzibah-backend.onrender.com/api/product/${id}`)
             .then(response => response.json())
             .then(data => {
-                setItem(data); // Store fetched data in state
-                setFormData(data); // Set form data to pre-fill the form
+                setItem(data);
+                setFormData(data);
             })
             .catch(error => console.error('Error fetching data:', error));
     }, [id]);
@@ -77,7 +74,7 @@ const EditStudent = () => {
                 .then(response => response.json())
                 .then(updatedData => {
                     console.log('Data updated:', updatedData);
-                    navigate(`/studentdetails/${id}`); // Redirect or show a success message
+                    navigate(`/studentdetails/${id}`);
                 })
                 .catch(error => console.error('Error updating data:', error));
         }
@@ -92,7 +89,6 @@ const EditStudent = () => {
         </div>
     )
 
-
     if (!item) return (
         <div className=" h-[100vh] w-[100vw] flex items-center justify-center home-bg">
             <div className="flex flex-col items-center text-center rounded-md justify-center h-[300px] w-[300px] bg-gray-100">
@@ -101,6 +97,7 @@ const EditStudent = () => {
             </div>
         </div>
     )
+
     return (
         <div className=" h-[100vh] w-[100vw] home-bg flex items-center justify-center">
             <form onSubmit={handleSubmit} className=' w-[90%] bg-white px-4 py-6 sm:w-[50%] md:w-[40%] rounded-lg'>
@@ -204,7 +201,6 @@ const EditStudent = () => {
                     <option value="IJMB">IJMB</option>
                     <option value="UTME">UTME</option>
                 </select>
-                {/* Add other fields as necessary */}
                 <button type="submit" className=" block m-auto w-full text-center bg-purple-700 py-1 text-white mb-4">Save Changes</button>
             </form>
         </div>

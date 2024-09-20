@@ -9,11 +9,6 @@ interface Assignment {
 }
 
 const Assignments = () => {
-    const formatDate = (dateString: string) => {
-        const date = new Date(dateString); // Convert the ISO string to a Date object
-        return date.toISOString().split('T')[0]; // Extract the yyyy-mm-dd part
-    };
-
     const [assignment, setAssignment] = useState<Assignment[]>([]);
     useEffect(() => {
         fetch("https://toa-hephzibah-backend.onrender.com/api/assignment").then(
@@ -22,14 +17,13 @@ const Assignments = () => {
             data => {
                 const formattedData = data.map((assignment: any) => ({
                     ...assignment,
-                    updatedAt: format(assignment.updatedAt, 'dd-MM-yyyy') // Format the updatedAt field
+                    updatedAt: format(assignment.updatedAt, 'dd-MM-yyyy')
                 }));
 
                 setAssignment(formattedData);
             }
         ).catch((error) => console.error('Error fetching courses:', error));
     }, [])
-
 
     const handleDelete = async (id: string) => {
         try {
@@ -62,7 +56,6 @@ const Assignments = () => {
         </div>
     )
 
-
     return (
         <div className=" h-[100vh] w-[100vw] home-bg flex items-center justify-center">
 
@@ -72,8 +65,6 @@ const Assignments = () => {
                     <Link to={'/createassignment'} className=" text-white p-2 rounded-full mb4 bg-purple-500 hover:bg-purple-300 duration-300 mr-4"> + Create Assignment</Link>
                     <Link to={'/admin'} className=" text-white py-2 px-4 rounded-full mb4 bg-purple-500 hover:bg-purple-300 duration-300">Back</Link>
                 </div>
-
-
                 {
                     assignment.map((work, index) => (
                         <div key={index} className=" mx-auto max-w-[85%] p-3 bg-white rounded-md mb-6">

@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/table"
 import { Link } from "react-router-dom";
 
-
 interface Course {
     _id: string;
     firstName: string;
@@ -22,15 +21,9 @@ interface Course {
 
 }
 
-/*
-name
-email
-admission number
-coaching type
-*/
-
 const StudentList = () => {
     const [people, setPeople] = useState<Course[]>([]);
+
     useEffect(() => {
         fetch("https://toa-hephzibah-backend.onrender.com/api/products").then(
             response => response.json()
@@ -41,6 +34,7 @@ const StudentList = () => {
             }
         ).catch((error) => console.error('Error fetching courses:', error));
     }, [])
+
     if (!people) return (
         <div className=" h-[100vh] w-[100vw] flex items-center justify-center home-bg">
             <div className="flex flex-col items-center text-center rounded-md justify-center h-[300px] w-[300px] bg-gray-100">
@@ -49,6 +43,7 @@ const StudentList = () => {
             </div>
         </div>
     )
+
     return (
         <div className=" home-bg h-[100vh] w-[100vw] flex items-center justify-center">
             <Table className=" w-[70%] bg-white m-auto">
@@ -66,7 +61,6 @@ const StudentList = () => {
                         </div>
                     </TableRow>
                 </TableHeader>
-
                 {
                     people.map((student, index) => (
                         <TableBody key={index}>
@@ -85,7 +79,6 @@ const StudentList = () => {
                         </TableBody>
                     ))
                 }
-
             </Table>
         </div>
     )
