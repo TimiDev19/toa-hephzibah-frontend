@@ -103,6 +103,11 @@ const StudentDetails: React.FC = () => {
                         <h2 className=" text-lg font-bold">State of origin:</h2>
                         <h1>{item.stateOfOrign}</h1>
                     </div>
+
+                    <div className=" w-[90%] md:w-[45%] mb-6">
+                        <h2 className=" text-lg font-bold">Registration Number</h2>
+                        <h1>{item._id}</h1>
+                    </div>
                     <Link to={`/students`} type="submit" className=" block m-auto w-full text-center bg-purple-700 py-1 text-white mb-4">Done</Link>
                     <Link to={`/editstudent/${item._id}`} type="submit" className=" block m-auto w-full text-center bg-purple-700 py-1 text-white mb-4">Edit Details</Link>
                 </div>
