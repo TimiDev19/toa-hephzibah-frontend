@@ -23,11 +23,11 @@ function App() {
   })
 
   return (
-    <div className='bg-[#F5F5F5] h-[100vh] w-[100vw] overflow-y-scroll'>
+    <div className='bg-[#F5F5F5] h-[100vh] w-[100vw] overflow-y-scroll font-urbanist'>
 
       {
         isLoading ? (
-          <div className="h-full w-full flex items-center justify-center name-reveal-container">
+          <div className="h-full w-full flex items-center justify-center name-reveal-container font-urbanist">
             <h1 className='text-2xl md:text-7xl font-bold name-reveal-left inline md:mx-3 mx-2 text-purple-700'>TOA HEPHZIBAH</h1>
             <h1 className='text-2xl md:text-7xl font-bold name-reveal-right inline md:mx-3 mx-2 text-purple-700'>TUTOR</h1>
           </div>

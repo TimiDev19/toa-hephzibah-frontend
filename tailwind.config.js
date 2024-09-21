@@ -32,6 +32,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    fontFamily: {
+      urbanist: ["Urbanist", 'sans-serif'],
+    },
   },
   plugins: [require("tailwindcss-animate")],
 }
