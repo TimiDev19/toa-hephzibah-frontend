@@ -32,6 +32,7 @@ const LandingPage = () => {
   const passwordVerify = () => {
     if (adminNumber === "toa" && password === "teeoa") {
       setAuthenticated(true)
+      console.log(authenticated)
       navigate('/admin')
     } else {
       setemptyReg(false)
