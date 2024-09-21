@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import logo from '../assets/logo.webp'
 import { format } from 'date-fns';
+import FadeInWrapper from "@/components/FadeInWrapper";
 
 interface Item {
     _id: string;
@@ -157,6 +158,7 @@ const StudentProfile: React.FC = () => {
 
             <div className=' hidden lg:block home-bg h-[100vh] w-full'>
                 <div className=' flex items-center justify-between h-[100vh] p-10'>
+
                     <div className=' hidden w-[18%] py-10 h-full bg-gradient-to-t from-purple-600 to-purple-200 rounded-md lg:flex flex-col items-center justify-between'>
                         <div className=' text-center'>
                             <div>
@@ -168,7 +170,9 @@ const StudentProfile: React.FC = () => {
                         <a href="/" className=' bg-white px-6 py-2 rounded-full border-purple-700 hover:border-[5px] duration-500'>Logout</a>
                     </div>
 
+
                     <div className=' w-full lg:w-[80%] h-full'>
+
                         <div className=' h-fit w-full flex items-center justify-end'>
                             <div className=' flex items-center justify-center bg-white rounded-lg mb-6'>
                                 <div>
@@ -182,19 +186,22 @@ const StudentProfile: React.FC = () => {
                         </div>
 
 
-                        <div className=' px-10 py-8 mb-10 w-full h-[160px] bg-gradient-to-br from-purple-700 to-purple-200 rounded-lg flex items-center justify-between'>
-                            <div className=' lg:w-[80%] h-full flex flex-col items-start justify-between'>
-                                <h1 className='font-thin text-sm text-white'>{todaysdate}</h1>
 
-                                <div>
-                                    <h1 className=' text-white font-bold text-3xl'>Welcome back, {item.firstName}!</h1>
-                                    <p className='font-thin text-sm text-white'>Stay up to date with your tutorial</p>
+                        <FadeInWrapper>
+                            <div className=' px-10 py-8 mb-10 w-full h-[160px] bg-gradient-to-br from-purple-700 to-purple-200 rounded-lg flex items-center justify-between'>
+                                <div className=' lg:w-[80%] h-full flex flex-col items-start justify-between'>
+                                    <h1 className='font-thin text-sm text-white'>{todaysdate}</h1>
+
+                                    <div>
+                                        <h1 className=' text-white font-bold text-3xl'>Welcome back, {item.firstName}!</h1>
+                                        <p className='font-thin text-sm text-white'>Stay up to date with your tutorial</p>
+                                    </div>
+                                </div>
+                                <div className=" hidden lg:block">
+                                    <img src={logo} height={250} className=" h-[150px]" alt='kwara state university logo' />
                                 </div>
                             </div>
-                            <div className=" hidden lg:block">
-                                <img src={logo} height={250} className=" h-[150px]" alt='kwara state university logo' />
-                            </div>
-                        </div>
+                        </FadeInWrapper>
 
                         <div className=' flex items-start justify-between w-full'>
                             <div className=' w-[65%]'>
